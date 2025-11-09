@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPM Medium-Level Quiz (51–100)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>SPM Medium-Level Quiz (Questions 51–100)</h1>
+    <form id="quizForm">
+      <div id="quiz"></div>
+      <div class="nav-buttons">
+        <a href="index3.html"><button type="button">← Back (1–50)</button></a>
+        <button type="button" onclick="submitQuiz()">Submit Answers</button>
+      </div>
+    </form>
+    <div id="result" class="result" style="display:none;"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      { q: "51. Agile’s time-boxed iterations are called:", options: ["Loops", "Phases", "Sprints", "Modules"], answer: 2 },
+      { q: "52. Which model is suitable for small, evolving projects?", options: ["Waterfall", "Agile", "V-Model", "RAD"], answer: 1 },
+      { q: "53. Spiral model is also known as:", options: ["Evolutionary model", "Linear model", "Prototyping model", "Sequential model"], answer: 0 },
+      { q: "54. Agile teams emphasize:", options: ["Customer collaboration", "Contract negotiation", "Strict schedules", "Documentation"], answer: 0 },
+      { q: "55. The Incremental model can be considered a combination of:", options: ["Linear and iterative models", "Spiral and RAD", "Waterfall and Agile", "RAD and V-Model"], answer: 0 },
+      { q: "56. RAD model lifecycle includes:", options: ["Business, Data, Process modeling, Testing, Deployment", "Planning, Coding, Maintenance", "Testing only", "Design only"], answer: 0 },
+      { q: "57. Agile requires close cooperation between:", options: ["Developers and customers", "Managers only", "Testers only", "Clients only"], answer: 0 },
+      { q: "58. Spiral model involves:", options: ["Iterative risk assessment", "Single iteration", "No risk analysis", "Linear steps"], answer: 0 },
+      { q: "59. Waterfall testing starts:", options: ["After implementation", "Before coding", "During design", "Continuously"], answer: 0 },
+      { q: "60. In V-Model, each phase has a corresponding:", options: ["Testing phase", "Design phase", "Deployment", "Iteration"], answer: 0 },
+      { q: "61. Agile planning is:", options: ["Adaptive", "Rigid", "Fixed", "Non-existent"], answer: 0 },
+      { q: "62. RAD model encourages:", options: ["Reusable components", "Heavy documentation", "Sequential process", "Long cycles"], answer: 0 },
+      { q: "63. Spiral model uses a ___ approach:", options: ["Risk-driven", "Cost-driven", "Document-driven", "Customer-driven"], answer: 0 },
+      { q: "64. Agile methodology supports:", options: ["Incremental development", "Single-phase process", "Sequential flow", "Fixed design"], answer: 0 },
+      { q: "65. Incremental delivery provides:", options: ["Faster feedback", "Full product at end", "No testing", "More errors"], answer: 0 },
+      { q: "66. V-Model is best suited for:", options: ["Small and critical systems", "Dynamic requirements", "Exploratory projects", "Agile teams"], answer: 0 },
+      { q: "67. RAD emphasizes:", options: ["Prototyping and rapid delivery", "Extensive documentation", "Sequential testing", "No user input"], answer: 0 },
+      { q: "68. Agile testing occurs:", options: ["Throughout the project", "Only after coding", "After deployment", "In last stage"], answer: 0 },
+      { q: "69. Spiral model’s main focus is:", options: ["Risk management", "Cost control", "Testing", "Planning"], answer: 0 },
+      { q: "70. Agile teams respond to:", options: ["Change", "Strict deadlines", "Rigid plans", "Documents"], answer: 0 },
+      { q: "71. RAD requires a team that is:", options: ["Small and skilled", "Large and hierarchical", "Untrained", "Independent"], answer: 0 },
+      { q: "72. Incremental model combines elements of:", options: ["Linear and iterative models", "Agile and Waterfall", "V-Model and RAD", "Spiral and XP"], answer: 0 },
+      { q: "73. Agile development cycles deliver:", options: ["Working software frequently", "Documentation only", "Testing reports", "Designs only"], answer: 0 },
+      { q: "74. Spiral model requires expertise in:", options: ["Risk assessment", "Database management", "Coding only", "UI design"], answer: 0 },
+      { q: "75. RAD is most useful when:", options: ["Requirements are clear and time is short", "Long-term planning needed", "Requirements are vague", "Budget unlimited"], answer: 0 },
+      { q: "76. V-Model ensures:", options: ["Parallel development and testing", "No testing", "Sequential flow only", "Late validation"], answer: 0 },
+      { q: "77. Agile documentation is:", options: ["Minimal and sufficient", "Extensive", "Ignored", "Detailed"], answer: 0 },
+      { q: "78. Spiral model allows:", options: ["Multiple iterations with risk control", "One single iteration", "Linear sequence", "No feedback"], answer: 0 },
+      { q: "79. Incremental model’s primary advantage:", options: ["Early delivery of working modules", "Complete delivery at end", "No user feedback", "High risk"], answer: 0 },
+      { q: "80. Agile promotes:", options: ["Individuals and interactions", "Tools and processes", "Documentation", "Rigid plans"], answer: 0 },
+      { q: "81. RAD depends heavily on:", options: ["Prototyping", "Documentation", "Formal testing", "Sequential design"], answer: 0 },
+      { q: "82. Spiral model is preferred for:", options: ["Large, high-risk projects", "Simple tasks", "Short-term apps", "Static systems"], answer: 0 },
+      { q: "83. Agile uses what type of development?", options: ["Iterative and incremental", "Sequential", "Cascading", "Rigid"], answer: 0 },
+      { q: "84. V-Model validation corresponds to:", options: ["Requirements and design", "Coding", "Deployment", "Maintenance"], answer: 0 },
+      { q: "85. RAD reduces:", options: ["Development time", "User involvement", "Quality", "Performance"], answer: 0 },
+      { q: "86. Agile teams perform:", options: ["Continuous integration and testing", "One-time testing", "Post-delivery checks", "No testing"], answer: 0 },
+      { q: "87. Spiral model includes evaluation by:", options: ["Customer", "Developer only", "Tester only", "Manager"], answer: 0 },
+      { q: "88. Incremental model delivers product in:", options: ["Pieces (increments)", "Single release", "Multiple prototypes only", "No output"], answer: 0 },
+      { q: "89. Agile prioritizes:", options: ["Working software over documentation", "Contracts over collaboration", "Processes over people", "Tools over individuals"], answer: 0 },
+      { q: "90. V-Model ensures defects are:", options: ["Detected early", "Detected late", "Ignored", "Post-deployment"], answer: 0 },
+      { q: "91. RAD prototype is built to:", options: ["Get user feedback", "Skip design", "Replace testing", "Delay delivery"], answer: 0 },
+      { q: "92. Spiral model each loop ends with:", options: ["Customer evaluation", "Testing only", "Coding only", "Deployment"], answer: 0 },
+      { q: "93. Agile allows:", options: ["Frequent feedback and adaptation", "One-time planning", "Rigid schedules", "No client input"], answer: 0 },
+      { q: "94. Incremental approach helps in:", options: ["Managing risks and complexity", "Delaying results", "Avoiding testing", "Reducing feedback"], answer: 0 },
+      { q: "95. V-Model improves:", options: ["Validation process", "Coding speed", "Documentation only", "Design consistency"], answer: 0 },
+      { q: "96. RAD focuses on:", options: ["User involvement and prototyping", "Sequential stages", "Long cycles", "Design-only tasks"], answer: 0 },
+      { q: "97. Spiral model phase sequence:", options: ["Planning → Risk Analysis → Engineering → Evaluation", "Design → Code → Test", "Plan → Build → Deploy", "Define → Develop → Deliver"], answer: 0 },
+      { q: "98. Agile iterations deliver:", options: ["Functional product increments", "Documentation", "Plans", "Test cases only"], answer: 0 },
+      { q: "99. RAD suits applications that are:", options: ["Modular and reusable", "Monolithic", "Undefined", "Static"], answer: 0 },
+      { q: "100. Spiral model combines elements of:", options: ["Design, prototyping, and risk control", "Coding and testing only", "Waterfall only", "Deployment only"], answer: 0 },
+    ];
+
+    const quizContainer = document.getElementById("quiz");
+
+    quizData.forEach((item, index) => {
+      const qDiv = document.createElement("div");
+      qDiv.className = "question";
+      let optionsHTML = "";
+      item.options.forEach((opt, i) => {
+        optionsHTML += `<label><input type="radio" name="q${index}" value="${i}">${opt}</label>`;
+      });
+      qDiv.innerHTML = `<p>${item.q}</p><div class="options">${optionsHTML}</div>`;
+      quizContainer.appendChild(qDiv);
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      let outputHTML = "";
+      quizData.forEach((item, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected && parseInt(selected.value) === item.answer) {
+          score++;
+          outputHTML += `<p>${item.q} <span class="correct">✔ Correct</span></p>`;
+        } else {
+          outputHTML += `<p>${item.q} <span class="wrong">✘ Wrong</span><br><b>Correct:</b> ${item.options[item.answer]}</p>`;
+        }
+      });
+      const resultDiv = document.getElementById("result");
+      resultDiv.style.display = "block";
+      resultDiv.innerHTML = `<h2>Your Score: ${score}/${quizData.length}</h2>${outputHTML}`;
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
+

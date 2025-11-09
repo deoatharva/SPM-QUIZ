@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPM Basic Quiz (51–100)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>SPM Basic Quiz (Questions 51–100)</h1>
+    <form id="quizForm">
+      <div id="quiz"></div>
+      <div class="nav-buttons">
+        <a href="index1.html"><button type="button">Previous (1–50)</button></a>
+        <button type="button" onclick="submitQuiz()">Submit Answers</button>
+      </div>
+    </form>
+    <div id="result" class="result" style="display: none"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      { q: "51. Which model is best for large, complex projects?", options: ["RAD", "Spiral", "Agile", "V-Model"], answer: 1 },
+      { q: "52. The Waterfall model is best used when:", options: ["Requirements are clear", "Requirements are changing", "No documentation is needed", "Customer not involved"], answer: 0 },
+      { q: "53. Agile development divides work into:", options: ["Modules", "Phases", "Sprints", "Cycles"], answer: 2 },
+      { q: "54. Which model focuses on risk analysis?", options: ["Waterfall", "Spiral", "Incremental", "RAD"], answer: 1 },
+      { q: "55. In Scrum, daily meetings are called:", options: ["Stand-ups", "Scrums", "Reviews", "Iterations"], answer: 1 },
+      { q: "56. RAD model mainly reduces:", options: ["Development time", "Quality", "User interaction", "Documentation"], answer: 0 },
+      { q: "57. Which model is suitable for object-oriented systems?", options: ["Scrum", "Waterfall", "V-Model", "Code-and-fix"], answer: 0 },
+      { q: "58. In XP, developers:", options: ["Work alone", "Program in pairs", "Avoid testing", "Skip coding"], answer: 1 },
+      { q: "59. Spiral model integrates:", options: ["Design and risk", "Testing and coding", "Documentation and planning", "Prototyping and Waterfall"], answer: 3 },
+      { q: "60. Which of these emphasizes short development cycles?", options: ["RAD", "V-Model", "Agile", "Waterfall"], answer: 0 },
+      { q: "61. In Waterfall model, each phase must be:", options: ["Skipped", "Revised simultaneously", "Completed before next begins", "Independent"], answer: 2 },
+      { q: "62. Prototyping helps in:", options: ["Final testing only", "Clarifying user requirements", "Documentation", "Deployment"], answer: 1 },
+      { q: "63. Spiral model iterations are called:", options: ["Phases", "Cycles", "Sprints", "Loops"], answer: 3 },
+      { q: "64. Which of the following gives early visibility of product?", options: ["Prototyping", "Waterfall", "V-Model", "RAD"], answer: 0 },
+      { q: "65. The Incremental model delivers:", options: ["Partial systems in steps", "Full system at once", "Documentation only", "Code without design"], answer: 0 },
+      { q: "66. Agile development requires:", options: ["User feedback", "Strict planning", "No testing", "Sequential design"], answer: 0 },
+      { q: "67. RAD is suitable for:", options: ["Long-term projects", "Tight deadlines", "No user involvement", "Slow cycles"], answer: 1 },
+      { q: "68. In Scrum, each iteration is known as:", options: ["Phase", "Loop", "Sprint", "Cycle"], answer: 2 },
+      { q: "69. Spiral model emphasizes:", options: ["Risk management", "Documentation", "Speed only", "Static requirements"], answer: 0 },
+      { q: "70. Agile promotes:", options: ["Customer collaboration", "Ignoring users", "Following rigid contracts", "Late feedback"], answer: 0 },
+      { q: "71. Which of the following is a disadvantage of prototyping?", options: ["User confusion with final system", "Early feedback", "Clarified requirements", "Reduced cost"], answer: 0 },
+      { q: "72. In RAD, teams are usually:", options: ["Large", "Small and skilled", "Hierarchical", "Distributed only"], answer: 1 },
+      { q: "73. Spiral model requires:", options: ["Risk analysis expertise", "No documentation", "Simple planning", "Customer absence"], answer: 0 },
+      { q: "74. Waterfall model is also known as:", options: ["Linear Sequential Model", "Agile Model", "Evolutionary Model", "Prototyping Model"], answer: 0 },
+      { q: "75. Agile development encourages:", options: ["Face-to-face communication", "Long documentation", "Strict hierarchy", "Ignoring users"], answer: 0 },
+      { q: "76. RAD focuses on:", options: ["Object-oriented design", "Sequential process", "Long cycle", "Documentation only"], answer: 0 },
+      { q: "77. Spiral model phases include:", options: ["Planning, Risk Analysis, Engineering, Evaluation", "Design, Code, Test", "Plan, Build, Deploy", "Define, Analyze, Deliver"], answer: 0 },
+      { q: "78. In Waterfall, testing starts:", options: ["After implementation", "Before design", "Parallel to coding", "At requirement stage"], answer: 0 },
+      { q: "79. Agile is best suited for:", options: ["Changing requirements", "Fixed scope", "Waterfall projects", "No user input"], answer: 0 },
+      { q: "80. Prototyping provides:", options: ["Early user feedback", "No testing", "Late review", "Complete system only"], answer: 0 },
+      { q: "81. Incremental model advantage is:", options: ["Early partial delivery", "Full delivery only at end", "High cost", "Rigid design"], answer: 0 },
+      { q: "82. In XP, customers are:", options: ["Excluded", "Involved actively", "Ignored", "Replaced by managers"], answer: 1 },
+      { q: "83. Scrum master is responsible for:", options: ["Team coordination", "Code review", "Risk analysis", "Customer support"], answer: 0 },
+      { q: "84. RAD is based on:", options: ["Prototyping and user involvement", "Sequential process", "Complex documentation", "Traditional testing"], answer: 0 },
+      { q: "85. In Waterfall, backtracking is:", options: ["Difficult", "Easy", "Encouraged", "Optional"], answer: 0 },
+      { q: "86. Spiral model may continue:", options: ["Indefinitely", "For one iteration only", "Once", "Never"], answer: 0 },
+      { q: "87. Agile documentation is:", options: ["Minimal and sufficient", "Extensive", "Unnecessary", "Ignored"], answer: 0 },
+      { q: "88. In XP, iterations are:", options: ["Short (1–2 weeks)", "Long (1 year)", "Monthly", "Irregular"], answer: 0 },
+      { q: "89. RAD teams must be:", options: ["Committed and skilled", "Untrained", "Large", "Independent only"], answer: 0 },
+      { q: "90. Agile testing is:", options: ["Continuous", "Post-development", "Optional", "Sequential"], answer: 0 },
+      { q: "91. Spiral model combines:", options: ["Controlled and iterative approaches", "Only coding", "Pure agile", "No documentation"], answer: 0 },
+      { q: "92. In Scrum, product owner:", options: ["Defines and prioritizes features", "Codes the project", "Tests the system", "Designs UI"], answer: 0 },
+      { q: "93. Incremental model prioritizes:", options: ["Requirements", "Budget", "Time only", "Tools"], answer: 0 },
+      { q: "94. Waterfall model emphasizes:", options: ["Documentation", "Speed", "Risk", "User testing"], answer: 0 },
+      { q: "95. Agile focuses on:", options: ["People and collaboration", "Tools only", "Process over individuals", "Fixed design"], answer: 0 },
+      { q: "96. RAD requires:", options: ["Reusable components", "Waterfall phases", "No testing", "No planning"], answer: 0 },
+      { q: "97. Spiral model is:", options: ["Evolutionary", "Sequential", "Linear", "Static"], answer: 0 },
+      { q: "98. In Waterfall, milestones are:", options: ["Well understood", "Not clear", "Hidden", "Skipped"], answer: 0 },
+      { q: "99. Prototyping helps attract:", options: ["Funding", "Errors", "Delays", "Complexity"], answer: 0 },
+      { q: "100. Agile methods are:", options: ["Lightweight", "Heavyweight", "Rigid", "Fixed"], answer: 0 },
+    ];
+
+    const quizContainer = document.getElementById("quiz");
+
+    quizData.forEach((item, index) => {
+      const qDiv = document.createElement("div");
+      qDiv.className = "question";
+      let optionsHTML = "";
+      item.options.forEach((opt, i) => {
+        optionsHTML += `<label><input type="radio" name="q${index}" value="${i}">${opt}</label>`;
+      });
+      qDiv.innerHTML = `<p>${item.q}</p><div class="options">${optionsHTML}</div>`;
+      quizContainer.appendChild(qDiv);
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      let outputHTML = "";
+      quizData.forEach((item, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected && parseInt(selected.value) === item.answer) {
+          score++;
+          outputHTML += `<p>${item.q} <span class="correct">✔ Correct</span></p>`;
+        } else {
+          outputHTML += `<p>${item.q} <span class="wrong">✘ Wrong</span><br><b>Correct:</b> ${item.options[item.answer]}</p>`;
+        }
+      });
+      const resultDiv = document.getElementById("result");
+      resultDiv.style.display = "block";
+      resultDiv.innerHTML = `<h2>Your Score: ${score}/${quizData.length}</h2>${outputHTML}`;
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
+

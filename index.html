@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPM Quiz Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .menu-container {
+      text-align: center;
+      margin-top: 60px;
+    }
+    .menu-title {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #1a73e8;
+    }
+    .menu-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .menu-buttons button {
+      width: 280px;
+      padding: 14px 20px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      background-color: #1a73e8;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .menu-buttons button:hover {
+      background-color: #155bcf;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-container">
+    <h1 class="menu-title">📘 Software Process Models Quiz Portal</h1>
+    <p>Select a section to begin your quiz:</p>
+
+    <div class="menu-buttons">
+      <button onclick="window.location.href='index1.html'">🧩 Basic Level (Q1–50)</button>
+      <button onclick="window.location.href='index2.html'">🧩 Basic Level (Q51–100)</button>
+      <button onclick="window.location.href='index3.html'">⚙️ Medium Level (Q1–50)</button>
+      <button onclick="window.location.href='index4.html'">⚙️ Medium Level (Q51–100)</button>
+      <button onclick="window.location.href='index5.html'">🚀 Advanced Level (Q1–50)</button>
+      <button onclick="window.location.href='index6.html'">🚀 Advanced Level (Q51–100)</button>
+    </div>
+  </div>
+</body>
+</html>
+
